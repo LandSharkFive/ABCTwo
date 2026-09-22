@@ -216,12 +216,11 @@ namespace ABCTwo
         /// </summary>
         public static double GetSlope(List<PriceBar> candles)
         {
-            int n = candles.Count;
-            if (n == 0)
-                throw new ArgumentException("List must not be empty.");
+            if (candles.Count < 2) return 0;
 
             double sumX = 0, sumY = 0, sumXY = 0, sumX2 = 0;
 
+            int n = candles.Count;
             for (int i = 0; i < n; i++)
             {
                 double x = i;
@@ -234,13 +233,13 @@ namespace ABCTwo
             }
 
             double denominator = n * sumX2 - sumX * sumX;
-            if (denominator == 0)
+            if (denominator >  0)
             {
-                // Insufficient variance in X.
-                return 0;
+                // Prevent divide by zero.
+                return (n * sumXY - sumX * sumY) / denominator;
             }
 
-            return (n * sumXY - sumX * sumY) / denominator;
+            return 0;
         }
 
 
