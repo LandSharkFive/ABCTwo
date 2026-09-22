@@ -1,0 +1,10 @@
+NVDA
+ABC Count 1466
+Strategy One (Trailing Stop 2.5%)
+Total Trades:      1444
+Winning Trades:    533
+Losing Trades:     911
+Win Rate:          36.91%
+Target D Hits:     533
+Total Profit:      $8469.22
+Max Drawdown:      $297.41
